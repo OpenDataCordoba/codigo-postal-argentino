@@ -1,3 +1,10 @@
+Limpiar localidades
+```
+awk '!v[$1]++' /tmp/cpa_argentina/localidad.CSV > /tmp/cpa_argentina/localidad_uniq.CSV
+```
+
+
+
 Limpie alturas.CSV quitando las ultimas filas nulas con
 ```
 grep -v "\"\";" alturas_old.CSV > alturas.CSV

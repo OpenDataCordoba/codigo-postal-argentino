@@ -57,3 +57,18 @@ Solo hay 2764 valores distintos para el codigo de area postal (los 4 digitos).
 select count(distinct(substring(codpostal,2,4))) from alturas;
 ```
 
+# Buscar
+
+```
+SELECT alturas.*
+FROM provincias
+JOIN partidos ON partidos.provincia=provincias.codprov
+JOIN localidad ON localidad.codpart=partidos.codpart
+JOIN calles ON calles.codloc=localidad.codloc
+JOIN alturas ON alturas.codcalle=calles.codcalle
+WHERE provincias.provincia ILIKE '%CORDOBA%'
+  AND partidos.partido ILIKE '%CAPITAL%'
+  AND localidad.localidad ILIKE '%CORDOBA%'
+  AND calles.nombrealt ILIKE '%BROWN%';
+
+```

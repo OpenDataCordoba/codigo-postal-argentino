@@ -58,7 +58,6 @@ class Alturas(Base):
     codcalle = Column(Integer)
     desde = Column(Integer)
     hasta = Column(Integer)
-    codpostal = Column(String(50))
     manzana = Column(String(3))
     codprov = Column(String(1))
     cp = Column(Integer)

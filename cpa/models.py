@@ -7,7 +7,7 @@ class Provincias(Base):
     __tablename__ = 'provincias'
 
     id = Column(Integer, primary_key=True)
-    codprov = Column(String(50))
+    codprov = Column(String(50), unique=True)
     provincia =  Column(String(50))
 
 
@@ -15,27 +15,24 @@ class Partidos(Base):
     __tablename__ = 'partidos'
 
     id = Column(Integer, primary_key=True)
-    codpart = Column(Integer)
+    codpart = Column(Integer, unique=True)
     partido =  Column(String(50))
-    # codprov = Column(String(50), ForeignKey('provincias.codprov'))
-    codprov = Column(String(50))
+    codprov = Column(String(1), ForeignKey('provincias.codprov'))
 
 
 class Localidad(Base):
     __tablename__ = 'localidad'
 
     id = Column(Integer, primary_key=True)
-    codloc = Column(Integer)
+    codloc = Column(Integer, unique=True)
     localidad =  Column(String(50))
     codpostal =  Column(String(50))
 
     manzana = Column(String(3))
-    #codprov = Column(String(1), ForeignKey('provincias.codprov'))
-    codprov = Column(String(1))
+    codprov = Column(String(1), ForeignKey('provincias.codprov'))
     cp = Column(Integer)
 
-    # codpart = Column(Integer, ForeignKey('partidos.codpart'))
-    codpart = Column(Integer)
+    codpart = Column(Integer, ForeignKey('partidos.codpart'))
 
 
 class Calles(Base):
@@ -59,5 +56,5 @@ class Alturas(Base):
     desde = Column(Integer)
     hasta = Column(Integer)
     manzana = Column(String(3))
-    codprov = Column(String(1))
+    codprov = Column(String(1), ForeignKey('provincias.codprov'))
     cp = Column(Integer)

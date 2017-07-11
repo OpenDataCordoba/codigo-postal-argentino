@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, Text, Float
 
 from cpa.adapter import Base
 
@@ -58,3 +58,44 @@ class Alturas(Base):
     manzana = Column(String(3))
     codprov = Column(String(1), ForeignKey('provincias.codprov'))
     cp = Column(Integer)
+
+
+
+
+
+# para el otro dataset, otros modelos para poder SQL-juntarlos
+
+
+class DatarProvincias(Base):
+    __tablename__ = 'datar_provincias'
+
+    id = Column(Integer, primary_key=True)
+    nombre =  Column(Text())
+
+
+class DatarParajes(Base):
+    __tablename__ = 'datar_parajes'
+
+    id = Column(Integer, primary_key=True)
+    id_provincia = Column(Integer)
+    nombre =  Column(Text())
+
+
+class DatarLocalidades(Base):
+    __tablename__ = 'datar_localidades'
+
+    id = Column(Integer, primary_key=True)
+    id_paraje = Column(Integer)
+    nombre =  Column(Text())
+    id_cpa = Column(Integer)
+    id_cp_1974 = Column(Integer)
+
+
+class DatarCPA(Base):
+    __tablename__ = 'datar_cpa'
+
+    temp_id = Column(Integer, primary_key=True)
+    id = Column(Integer)
+    cpa = Column(Text)
+    lon =  Column(Float)
+    lat =  Column(Float)

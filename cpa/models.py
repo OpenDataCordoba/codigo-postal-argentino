@@ -99,3 +99,7 @@ class DatarCPA(Base):
     cpa = Column(Text)
     lon =  Column(Float)
     lat =  Column(Float)
+
+    manzana = Column(String(3))
+    provincia = Column(String(1))
+    cp = Column(Integer)

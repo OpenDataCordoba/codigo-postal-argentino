@@ -20,6 +20,7 @@ def upgrade():
     conn = op.get_bind()
     conn.execute("""UPDATE localidad SET manzana=substring(codpostal, 6, 8) WHERE codpostal != ''""")
     conn.execute("""UPDATE localidad SET cp=substring(codpostal, 2, 4)::integer WHERE codpostal != ''""")
+    op.drop_column('localidad', 'codprov')
     op.alter_column('localidad', 'provincia', new_column_name='codprov')
 
 def downgrade():

@@ -103,10 +103,10 @@ class DatarCPA(Base):
 
     temp_id = Column(Integer, primary_key=True)
     id = Column(Integer)
-    cpa = Column(Text)
     lon =  Column(Float)
     lat =  Column(Float)
 
+    # cpa = Column(Text) Quitado y dividido en los siguientes 3 campos
     manzana = Column(String(3))
     provincia = Column(String(1))
     cp = Column(Integer)

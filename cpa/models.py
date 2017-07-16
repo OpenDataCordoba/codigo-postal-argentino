@@ -7,6 +7,7 @@ class Provincias(Base):
     __tablename__ = 'provincias'
 
     id = Column(Integer, primary_key=True)
+    id_datar_provincias = Column(Integer)
     codprov = Column(String(50), unique=True)
     provincia =  Column(String(50))
 

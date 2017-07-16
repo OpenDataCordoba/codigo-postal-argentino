@@ -91,8 +91,11 @@ class DatarCalles(Base):
     id_tipo_camino = Column(Integer)
 
 
-# class DatarCP1974(Base):
-#     pass
+class DatarCP1974(Base):
+    __tablename__ = "datar_cp_1974"
+
+    id = Column(Integer, primary_key=True)
+    cod_postal = Column(Integer)
 
 
 class DatarCPA(Base):
@@ -134,6 +137,8 @@ class DatarProvincias(Base):
     nombre =  Column(Text())
 
 
+class DatarTiposCamino(Base):
+    __tablename__ = "datar_tipos_camino"
 
-# class DatarTiposCamino(Base):
-#     pass
+    id = Column(Integer, primary_key=True)
+    nombre = Column(Text)

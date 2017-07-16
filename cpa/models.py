@@ -65,8 +65,15 @@ class Alturas(Base):
 
 # para el otro dataset, otros modelos para poder SQL-juntarlos
 
-# class DatarAlturas(Base):
-#     pass
+class DatarAlturas(Base):
+    __tablename__ = "datar_alturas"
+
+    id = Column(Integer, primary_key=True)
+    id_calle = Column(Integer)
+    desde = Column(Integer)
+    hasta = Column(Integer)
+    id_cpa = Column(Integer)
+    id_cp_1974 = Column(Integer)
 
 
 class DatarCalles(Base):

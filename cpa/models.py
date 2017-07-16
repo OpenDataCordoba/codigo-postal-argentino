@@ -65,30 +65,27 @@ class Alturas(Base):
 
 # para el otro dataset, otros modelos para poder SQL-juntarlos
 
-
-class DatarProvincias(Base):
-    __tablename__ = 'datar_provincias'
-
-    id = Column(Integer, primary_key=True)
-    nombre =  Column(Text())
+# class DatarAlturas(Base):
+#     pass
 
 
-class DatarParajes(Base):
-    __tablename__ = 'datar_parajes'
+class DatarCalles(Base):
+    __tablename__ = "datar_calles"
 
     id = Column(Integer, primary_key=True)
-    id_provincia = Column(Integer)
-    nombre =  Column(Text())
+    id_localidad = Column(Integer)
+    nombre_completo = Column(Text)
+    apellido = Column(Text)
+    nombre = Column(Text)
+    titulo = Column(Text)
+    nombre_abreviado = Column(Text)
+    barrio = Column(Text)
+    punto_cardinal = Column(Text)
+    id_tipo_camino = Column(Integer)
 
 
-class DatarLocalidades(Base):
-    __tablename__ = 'datar_localidades'
-
-    id = Column(Integer, primary_key=True)
-    id_paraje = Column(Integer)
-    nombre =  Column(Text())
-    id_cpa = Column(Integer)
-    id_cp_1974 = Column(Integer)
+# class DatarCP1974(Base):
+#     pass
 
 
 class DatarCPA(Base):
@@ -103,3 +100,33 @@ class DatarCPA(Base):
     manzana = Column(String(3))
     provincia = Column(String(1))
     cp = Column(Integer)
+
+
+class DatarLocalidades(Base):
+    __tablename__ = 'datar_localidades'
+
+    id = Column(Integer, primary_key=True)
+    id_paraje = Column(Integer)
+    nombre =  Column(Text())
+    id_cpa = Column(Integer)
+    id_cp_1974 = Column(Integer)
+
+
+class DatarParajes(Base):
+    __tablename__ = 'datar_parajes'
+
+    id = Column(Integer, primary_key=True)
+    id_provincia = Column(Integer)
+    nombre =  Column(Text())
+
+
+class DatarProvincias(Base):
+    __tablename__ = 'datar_provincias'
+
+    id = Column(Integer, primary_key=True)
+    nombre =  Column(Text())
+
+
+
+# class DatarTiposCamino(Base):
+#     pass
